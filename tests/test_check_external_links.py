@@ -16,11 +16,17 @@ def test_extract_urls_strips_trailing_punctuation():
 
 
 def test_extract_urls_ignores_local_links():
-    assert cel.extract_urls("
+    assert cel.extract_urls(
+        """
+        
 
 ![x](img/banner.png)
 
- and #top") == []
+
+
+        and #top
+        """
+    ) == []
 
 
 def _fake_response(status):
